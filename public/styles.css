@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Pacifico&display=swap");
+:root {
+  --color-white: #fff;
+  --color-black: #000;
+  --color-orange: #ff8c00;
+  --color-lightgrey: #f2f2f2;
+  --color-grey: #e9e9e9;
+  --color-royal-blue: #4169e1;
+  --color-blur: #6084ee;
+  --font-montserrat: "Montserrat", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-montserrat);
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: var(--color-orange);
+  background-size: 100%;
+}
+
+#cardForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Aligns flex children (input and button) on the cross axis which is horizontal here */
+  justify-content: center;
+  gap: 10px;
+}
+
+.container .first-page {
+  /* example to increase the size of the container, adjust as needed */
+  max-width: 800px; /* or whatever max width you prefer */
+  padding: 50px; /* more padding */
+  margin: auto; /* center the container */
+}
+
+#logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 10vw;
+  height: auto;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-timing-function: ease-in;
+  animation-duration: 0.5s;
+}
+
+.fade-out {
+  animation-name: fadeOut;
+  animation-timing-function: ease-in;
+  animation-duration: 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.card-swipe {
+  font-weight: 800;
+  color: #000000;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.set-title-all {
+  color: var(--color-black);
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  width: 600px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  background-color: var(--color-gr);
+  border-radius: 8px;
+  /* border: 2px solid var(--color-orange); */
+}
+
+.container h1 {
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.container p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+input[type="text"] {
+  padding: 20px;
+  width: calc(100% - 40px);
+  margin-top: 10px;
+  box-sizing: border-box;
+  background-color: var(--color-grey);
+  border: none;
+  border-radius: 6px;
+  font-size: 20px;
+  font-family: var(--font-montserrat);
+  font-weight: 500;
+  border: 2px solid var(--color-black);
+}
+
+.set-btn-all {
+  padding: 23px 43px;
+  margin: 10px;
+  cursor: pointer;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  font-family: var(--font-montserrat);
+  border: 2px solid var(--color-black);
+  font-size: 20px;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 22px;
+  border-radius: 6px;
+  width: calc(100% - 40px);
+}
+
+#serviceContainer img {
+  border-radius: 50%; /* To make the image circular, if you desire */
+  margin-bottom: 20px;
+}
+
+/* Add a class for the user info box
+*/
+.user-info-box {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.user-info-box img {
+  max-width: 100px; /* Adjust the image size as needed */
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.user-info-box h1 {
+  font-size: 24px;
+}
+
+.user-info-box p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Style for worker buttons (if needed) */
+.worker-btn {
+  margin: 15px;
+  padding: 15px 25px;
+  background-color: #f2f2f2;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+  .container {
+    width: 90%; /* Adjust width for tablet size */
+    padding: 30px;
+  }
+
+  .container h1,
+  .container h2,
+  .container p {
+    margin-bottom: 25px; /* More space between text elements */
+  }
+
+  button {
+    padding: 20px; /* Larger buttons for tablets */
+    font-size: 22px;
+  }
+
+  input[type="text"] {
+    margin-bottom: 20px; /* Add more space below the input field */
+  }
+}
+
+/* Style for larger screens, adjust the container width so it's not too wide */
+@media only screen and (min-width: 1025px) {
+  .container {
+    width: 600px;
+  }
+}
+
+/* Button code */
+button {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.hide-title {
+  display: none;
+}

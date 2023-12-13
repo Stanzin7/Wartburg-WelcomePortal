@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+      }
+
+      .top-header {
+        background-color: #333;
+        min-height: 50px;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 100vh;
+      }
+      .nav__el {
+        color: #f7f7f7;
+        text-transform: uppercase;
+        font-size: 1.3rem;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.2s;
+        font-weight: 400;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px 20px; /* Add padding for better touch */
+      }
+
+      .sidebar {
+        flex: 0 0 250px; /* Sidebar width */
+        background-color: #333;
+        color: white;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .menu ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .menu li a {
+        color: white;
+        padding: 15px;
+        display: block;
+        text-decoration: none;
+        border-bottom: 1px solid #444;
+      }
+
+      .menu li a:hover,
+      .menu li a:focus {
+        background-color: #555;
+      }
+
+      .add-office button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .add-office button:hover {
+        background-color: #0056b3;
+      }
+
+      .main-content {
+        flex-grow: 1;
+        padding: 20px;
+        width: calc(100% - 250px); /* Adjust width based on the sidebar */
+      }
+      @media (min-width: 768px) {
+        .container {
+          flex-wrap: nowrap;
+        }
+
+        .sidebar {
+          height: auto; /* Sidebar height adjusts to content height */
+          min-height: 100vh; /* Minimum height to match the viewport */
+        }
+
+        .main-content {
+          width: auto; /* Allow main content to grow */
+        }
+      }
+
+      #content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+      }
+
+      /* Form container styles */
+      #form-container {
+        width: 90%;
+        max-width: 600px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      #form-container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      #form-container h2 {
+        margin-bottom: 10px;
+      }
+
+      #form-container .form-group {
+        margin-bottom: 15px;
+      }
+
+      #form-container .form-group label {
+        display: block;
+      }
+
+      #form-container .form-group input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        margin-bottom: 10px;
+      }
+
+      #form-container .button-row {
+        text-align: right;
+        margin-top: 20px;
+      }
+
+      #form-container .button-row button,
+      #form-container .add-new-screen-btn {
+        padding: 10px 15px;
+        margin-left: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      #form-container .button-row button:hover,
+      #form-container .add-new-screen-btn:hover {
+        background-color: #0056b3;
+      }
+
+      #form-container .add-new-screen-btn {
+        width: 100%;
+        background-color: #28a745;
+        margin-top: 20px;
+      }
+
+      #form-container .add-new-screen-btn:hover {
+        background-color: #218838;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .top-header,
+        .container,
+        #form-container {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .sidebar {
+          width: auto;
+          margin-bottom: 20px;
+        }
+
+        .main-content {
+          padding: 20px 5%;
+        }
+
+        .menu li a {
+          text-align: center;
+        }
+
+        #form-container {
+          width: 100%;
+          box-shadow: none;
+          border-radius: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top-header">
+      <a href="/office" class="nav__el nav__el--office">Office</a>
+
+      <a href="/logout" class="nav__el nav__el--logout">Logout</a>
+    </header>
+    <div class="container">
+      <aside class="sidebar">
+        <nav class="menu">
+          <ul id="officeList">
+            <!-- Office list items will be populated here dynamically -->
+          </ul>
+        </nav>
+        <div class="add-office">
+          <button onclick="addNewOffice()">Add New Office</button>
+        </div>
+      </aside>
+
+      <section class="main-content">
+        <div id="content">
+          <!-- This is where the form will be displayed when a sidebar item is clicked -->
+        </div>
+      </section>
+    </div>
+
+    <script src="adminScript.js"></script>
+  </body>
+</html>
