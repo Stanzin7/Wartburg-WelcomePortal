@@ -3,8 +3,6 @@ let jsonData;
 
 async function init() {
   try {
-    // Fetch the JSON data from the API
-    // Replace the fetch URL with the local proxy endpoint
     const response = await fetch("/api/proxy");
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

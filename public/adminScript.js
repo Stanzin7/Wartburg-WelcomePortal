@@ -148,6 +148,7 @@ function addNewScreen(department) {
   formContainer.insertAdjacentHTML("beforeend", screen.toHTML(newScreenId));
 }
 
+// Functions for saving changes to a JSON file
 function saveChanges(department) {
   const jsonData = getFormDataAsJson(department);
   const jsonString = JSON.stringify(jsonData);
@@ -158,7 +159,6 @@ function saveChanges(department) {
     type: "application/json",
   });
 
-  // Create an anchor element and download the JSON as a file
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
@@ -167,7 +167,6 @@ function saveChanges(department) {
   link.click();
   document.body.removeChild(link);
 
-  // Revoke the Blob URL to free up resources
   URL.revokeObjectURL(url);
 
   alert("Changes have been saved as a file.");
